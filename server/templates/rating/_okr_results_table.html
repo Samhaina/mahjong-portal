@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<div class="table-responsive-lg">
+    <table class="table table-hover mt-4">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">{% trans 'Name' %}</th>
+            <th scope="col">{% trans 'Points' %}</th>
+            <th scope="col">{% trans 'From' context 'location' %}</th>
+            <th scope="col">{% trans 'Tenhou' %}</th>
+            <th scope="col"><nobr>{% trans 'Avg place' %}</nobr></th>
+            <th scope="col"><nobr>{% trans 'Games count' %}</nobr></th>
+            <th scope="col"><nobr>{% trans '1st place %' %}</nobr></th>
+            <th scope="col"><nobr>{% trans '2nd place %' %}</nobr></th>
+            <th scope="col"><nobr>{% trans '3rd place %' %}</nobr></th>
+            <th scope="col"><nobr>{% trans '4th place %' %}</nobr></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for rating_result in rating_results %}
+            <tr id="{{ rating_result.player.slug }}">
+                <th scope="row">{{ rating_result.place }}</th>
+                <td>
+                    <a href="{% url 'player_details' rating_result.player.slug %}">
+                        {# on large screns show full name #}
+                        <span class="d-none d-md-block d-print-none">
+                            {{ rating_result.player.full_name }}
+                        </span>
+                        {# on small screens show shorten first name #}
+                        <span class="d-block d-md-none d-print-none">
+                            <nobr>{{ rating_result.player.last_name }} {{ rating_result.player.first_name.0 }}.</nobr>
+                        </span>
+                        {# special case for print #}
+                        <span class="d-none d-print-block">
+                            {{ rating_result.player.full_name }}
+                        </span>
+                    </a>
+                </td>
+                <td>{{ rating_result.score|floatformat:0 }}</td>
+                <td>
+                    {% if rating_result.player.city %}
+                        <a href="{% url 'city_page' rating_result.player.city.slug %}">{{ rating_result.player.city.name }}</a>
+                    {% else %}
+                        {{ rating_result.player.country }}
+                    {% endif %}
+                </td>
+                <td>{{ rating_result.tenhou_rank|default:'' }}</td>
+                <td>{{ rating_result.average_place }}</td>
+                <td>{{ rating_result.games_count }}</td>
+                <td>{{ rating_result.first_place }}</td>
+                <td>{{ rating_result.second_place }}</td>
+                <td>{{ rating_result.third_place }}</td>
+                <td>{{ rating_result.fourth_place }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

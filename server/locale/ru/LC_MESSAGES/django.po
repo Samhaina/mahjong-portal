@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-19 13:47+0000\n"
+"POT-Creation-Date: 2018-01-25 16:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "Риичи маджонг клуб \"%(name)s\" в %(place)s"
 msgid "Riichi mahjong player %(name)s from %(place)s"
 msgstr "Игрок в риичи маджонг %(name)s из %(place)s"
 
-#: player/models.py:55
+#: player/models.py:56
 msgid "Substitution player"
 msgstr "Игрок замены"
 
@@ -152,7 +152,8 @@ msgstr "Поиск"
 msgid "Riichi mahjong russian clubs"
 msgstr "Российские риичи маджонг клубы"
 
-#: templates/club/list.html:19 templates/rating/_results_table.html:8
+#: templates/club/list.html:19 templates/rating/_okr_results_table.html:8
+#: templates/rating/_results_table.html:8
 #: templates/tournament/_tournaments_table.html:8
 #: templates/tournament/announcement.html:55
 #: templates/tournament/details.html:34
@@ -162,7 +163,7 @@ msgstr "Российские риичи маджонг клубы"
 msgid "Name"
 msgstr "Имя"
 
-#: templates/club/list.html:20 templates/tournament/_tournaments_table.html:10
+#: templates/club/list.html:20 templates/tournament/_tournaments_table.html:14
 #: templates/tournament/announcement.html:56
 #: templates/tournament_admin/tournament_manage.html:66
 #: templates/website/search.html:17 tournament/models.py:157
@@ -178,8 +179,8 @@ msgstr "Список и карта всех российских риичи ма
 msgid "From"
 msgstr "Из"
 
-#: templates/player/details.html:25 templates/player/details.html:49
-#: templates/player/details.html:92
+#: templates/player/details.html:25 templates/player/details.html:52
+#: templates/player/details.html:96
 msgid "Place"
 msgstr "Место"
 
@@ -187,43 +188,77 @@ msgstr "Место"
 msgid "scores"
 msgstr "очков"
 
-#: templates/player/details.html:30
+#: templates/player/details.html:31
 msgid "how we calculated rating score"
 msgstr "как расчитывается рейтинг"
 
-#: templates/player/details.html:40
+#: templates/player/details.html:43
 msgid "Rating changes"
 msgstr "Изменения рейтинга"
 
-#: templates/player/details.html:47 templates/player/details.html:90
+#: templates/player/details.html:50 templates/player/details.html:94
 msgid "Base rank"
 msgstr "Ранг"
 
-#: templates/player/details.html:48 templates/player/details.html:91
+#: templates/player/details.html:51 templates/player/details.html:95
 #: templates/tournament/_tournaments_table.html:9
 msgid "Date"
 msgstr "Дата"
 
-#: templates/player/details.html:50 templates/player/details.html:93
+#: templates/player/details.html:53 templates/player/details.html:97
 msgid "Tournament"
 msgstr "Турнир"
 
-#: templates/player/details.html:83
+#: templates/player/details.html:87
 msgid "Other tournaments"
 msgstr "Остальные турниры"
 
-#: templates/player/details.html:84
+#: templates/player/details.html:88
 msgid "Tournaments not counted in ratings, but where they took part"
 msgstr "Турниры не учитываемые в рейтингах"
 
+#: templates/rating/_okr_results_table.html:9
 #: templates/rating/_results_table.html:9 templates/website/city.html:24
 msgid "Points"
 msgstr "Очки"
 
+#: templates/rating/_okr_results_table.html:10
 #: templates/rating/_results_table.html:10 templates/tournament/details.html:36
 msgctxt "location"
 msgid "From"
 msgstr "Откуда"
+
+#: templates/rating/_okr_results_table.html:11
+msgid "Tenhou"
+msgstr ""
+
+#: templates/rating/_okr_results_table.html:12
+msgid "Avg place"
+msgstr "Ср. место"
+
+#: templates/rating/_okr_results_table.html:13
+msgid "Games count"
+msgstr "Игр"
+
+#: templates/rating/_okr_results_table.html:14
+#, python-format
+msgid "1st place %%"
+msgstr "1 места"
+
+#: templates/rating/_okr_results_table.html:15
+#, python-format
+msgid "2nd place %%"
+msgstr "2 места"
+
+#: templates/rating/_okr_results_table.html:16
+#, python-format
+msgid "3rd place %%"
+msgstr "3 места"
+
+#: templates/rating/_okr_results_table.html:17
+#, python-format
+msgid "4th place %%"
+msgstr "4 места"
 
 #: templates/rating/details.html:17
 msgid "Latest update: "
@@ -243,16 +278,21 @@ msgstr "Все доступные рейтинги"
 msgid "New tournaments"
 msgstr "Новые турниры"
 
-#: templates/tournament/_tournaments_table.html:11
+#: templates/tournament/_tournaments_table.html:12
+#: templates/website/search.html:18
+msgid "Country"
+msgstr "Страна"
+
+#: templates/tournament/_tournaments_table.html:17
 msgid "Type"
 msgstr "Тип"
 
-#: templates/tournament/_tournaments_table.html:12
+#: templates/tournament/_tournaments_table.html:18
 msgctxt "number of players"
 msgid "Players"
 msgstr "Игроков"
 
-#: templates/tournament/_tournaments_table.html:13
+#: templates/tournament/_tournaments_table.html:19
 msgid "Sessions"
 msgstr "Игр"
 
@@ -482,10 +522,6 @@ msgstr ""
 msgid "Search results for"
 msgstr "Результаты поиска"
 
-#: templates/website/search.html:18
-msgid "Country"
-msgstr "Страна"
-
 #: templates/website/search.html:39
 msgid "nothing found"
 msgstr "ничего не нашлось"
@@ -518,7 +554,7 @@ msgstr "Расскажите нам про ваш турнир"
 msgid "We would like to know tournament date, place and your contacts"
 msgstr "Ваши контакты, место и дата проведения"
 
-#: tournament/views.py:141
+#: tournament/views.py:142
 msgid ""
 "Your registration was accepted! It will be visible on the page after "
 "administrator approvement."
@@ -526,6 +562,6 @@ msgstr ""
 "Регистрация принята! Она появится на странице после одобрения "
 "администратором."
 
-#: tournament/views.py:144
+#: tournament/views.py:145
 msgid "Your registration was accepted!"
 msgstr "Регистрация принята!"

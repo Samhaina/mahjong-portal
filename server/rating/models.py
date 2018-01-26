@@ -9,11 +9,13 @@ class Rating(BaseModel):
     RR = 0
     EMA = 1
     CRR = 2
+    OKR = 3
 
     TYPES = [
         [RR, 'RR'],
         [CRR, 'CRR'],
-        [EMA, 'EMA']
+        [EMA, 'EMA'],
+        [OKR, 'OKR']
     ]
 
     name = models.CharField(max_length=255)
@@ -28,6 +30,9 @@ class Rating(BaseModel):
 
     def __unicode__(self):
         return self.name
+
+    def is_okr(self):
+        return self.type == self.OKR
 
 
 class RatingDelta(BaseModel):
@@ -53,6 +58,15 @@ class RatingResult(BaseModel):
     place = models.PositiveIntegerField(default=None, null=True, blank=True)
 
     rating_calculation = models.TextField(null=True, blank=True)
+
+    # OKR related fields
+    average_place = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    first_place = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    second_place = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    third_place = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    fourth_place = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    games_count = models.PositiveIntegerField(null=True, blank=True)
+    tenhou_rank = models.CharField(max_length=10, null=True, blank=True)
 
     def __unicode__(self):
         return self.rating.name

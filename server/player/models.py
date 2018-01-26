@@ -39,6 +39,7 @@ class Player(BaseModel):
     is_hide = models.BooleanField(default=False)
 
     ema_id = models.CharField(max_length=30, null=True, blank=True, default='')
+    okr_id = models.CharField(max_length=30, null=True, blank=True, default='')
 
     class Meta:
         ordering = ['last_name']

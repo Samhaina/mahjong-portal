@@ -17,7 +17,11 @@
             <p>{% trans 'Latest update: ' %}{{ rating.updated_on }} (UTC+3)</p>
         {% endtimezone %}
 
-        {% include 'rating/_results_table.html' %}
+        {% if rating.is_okr %}
+            {% include 'rating/_okr_results_table.html' %}
+        {% else %}
+            {% include 'rating/_results_table.html' %}
+        {% endif %}
     </div>
 {% endblock %}
 
